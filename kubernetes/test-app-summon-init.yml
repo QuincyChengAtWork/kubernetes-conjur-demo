@@ -37,7 +37,7 @@ spec:
       serviceAccountName: test-app-summon-init
       containers:
       - image: {{ TEST_APP_DOCKER_IMAGE }}
-        imagePullPolicy: {{ IMAGE_PULL_POLICY }}
+        imagePullPolicy: IfNotPresent
         name: test-app
         ports:
         - name: http
