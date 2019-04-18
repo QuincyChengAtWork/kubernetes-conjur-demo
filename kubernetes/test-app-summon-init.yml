@@ -68,7 +68,7 @@ spec:
             readOnly: true
       initContainers:
       - image: {{ AUTHENTICATOR_CLIENT_IMAGE }}
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: authenticator
         env:
           - name: CONJUR_VERSION
