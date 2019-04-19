@@ -3,13 +3,13 @@ set -euo pipefail
 
 . utils.sh
 
-announce "Skipping Initialize Conjur certificate authority."
+announce "Initializing Conjur certificate authority."
 
-#
-#  no need to use Conjur CA for OSS
-#
 
-#set_namespace $CONJUR_NAMESPACE_NAME
+set_namespace $CONJUR_NAMESPACE_NAME 
+
+
+$cli exec $conjur_pod_name bundle exec rake authn_k8s:ca_init["conjur/authn-k8s/$AUTHENTICATOR_ID"]
 
 #conjur_master=$(get_master_pod_name)
 
