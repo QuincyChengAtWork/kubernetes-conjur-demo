@@ -7,8 +7,8 @@ announce "Initializing Conjur certificate authority."
 
 set_namespace $CONJUR_NAMESPACE_NAME 
 
-$cli cp ./initCA.sh $POD_NAME:/root
+$cli cp ./initCA.sh $$cli_pod_name:/root
 
-$cli exec $POD_NAME -- /root/initCA.sh $AUTHENTICATOR_ID $CONJUR_ACCOUNT
+$cli exec $$cli_pod_name -- /root/initCA.sh $AUTHENTICATOR_ID $CONJUR_ACCOUNT
 
 echo "Certificate authority initialized."
