@@ -7,10 +7,10 @@ announce "Initializing Conjur certificate authority."
 
 set_namespace $CONJUR_NAMESPACE_NAME 
 
-$cli exec $conjur_pod_name -- export AUTHENTICATOR_ID=$AUTHENTICATOR_ID
-$cli exec $conjur_pod_name -- export CONJUR_ACCOUNT=$CONJUR_ACCOUNT
+$cli exec $POD_NAME -- export AUTHENTICATOR_ID=$AUTHENTICATOR_ID
+$cli exec $POD_NAME -- export CONJUR_ACCOUNT=$CONJUR_ACCOUNT
 
-$cli exec $conjur_pod_name -- cat >>/root/initCA.sh<<EOF
+$cli exec $POD_NAME -- cat >>/root/initCA.sh<<EOF
 #!/bin/bash
 set -e
 #AUTHENTICATOR_ID='<AUTHENTICATOR_ID>'
@@ -42,6 +42,6 @@ conjur variable values add conjur/authn-k8s/$AUTHENTICATOR_ID/ca/key "$(cat ca.k
 conjur variable values add conjur/authn-k8s/$AUTHENTICATOR_ID/ca/cert "$(cat ca.cert)"
 EOF
 
-$cli exec $conjur_pod_name -- /root/initCA.sh
+$cli exec $POD_NAME -- /root/initCA.sh
 
 echo "Certificate authority initialized."
