@@ -39,13 +39,15 @@ announce() {
 }
 
 platform_image() {
-  if [ $PLATFORM = "openshift" ]; then
-    echo "$DOCKER_REGISTRY_PATH/$TEST_APP_NAMESPACE_NAME/$1:$TEST_APP_NAMESPACE_NAME"
-  elif [ $MINIKUBE != true ]; then
-    echo "$DOCKER_REGISTRY_PATH/$1:$CONJUR_NAMESPACE_NAME"
-  else
+#  if [ $PLATFORM = "openshift" ]; then
+#    echo "$DOCKER_REGISTRY_PATH/$TEST_APP_NAMESPACE_NAME/$1:$TEST_APP_NAMESPACE_NAME"
+#  elif [ $MINIKUBE != true ]; then
+#    echo "$DOCKER_REGISTRY_PATH/$1:$CONJUR_NAMESPACE_NAME"
+#  else
+#    echo "$1:$CONJUR_NAMESPACE_NAME"
+#  fi
     echo "$1:$CONJUR_NAMESPACE_NAME"
-  fi
+
 }
 
 has_namespace() {
