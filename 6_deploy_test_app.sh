@@ -64,7 +64,7 @@ init_connection_specs() {
 
 
 conjur_appliance_url=https://$conjur_service/api
-conjur_appliance_url=https://$conjur_service/api/authn-k8s/$AUTHENTICATOR_ID
+conjur_authenticator_url=https://$conjur_service/api/authn-k8s/$AUTHENTICATOR_ID
 
 #  conjur_appliance_url=https://conjur-follower.$CONJUR_NAMESPACE_NAME.svc.cluster.local/api
 #  conjur_authenticator_url=https://conjur-follower.$CONJUR_NAMESPACE_NAME.svc.cluster.local/api/authn-k8s/$AUTHENTICATOR_ID
