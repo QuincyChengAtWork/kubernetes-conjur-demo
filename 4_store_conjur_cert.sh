@@ -10,7 +10,7 @@ set_namespace $CONJUR_NAMESPACE_NAME
 echo "Retrieving Conjur certificate."
 
 export cli_pod_name="$( kubectl get pods --selector app=conjur-cli --no-headers | awk '{ print $1 }' )"
-kubectl cp $cli_pod_name:/root/conjur-quickstart.pem \ssl-certificate
+kubectl cp $cli_pod_name:/root/conjur-default.pem \ssl-certificate
 
 set_namespace $TEST_APP_NAMESPACE_NAME
 
