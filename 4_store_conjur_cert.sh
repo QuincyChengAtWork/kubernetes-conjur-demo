@@ -5,7 +5,7 @@ set -euo pipefail
 
 announce "Storing Conjur cert for test app configuration."
 
-set_namespace $CONJUR_NAMESPACE_NAME
+set_namespace $CONJUR_NAMESPACE
 
 echo "Retrieving Conjur certificate."
 
